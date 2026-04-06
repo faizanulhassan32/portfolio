@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion'
-import { ArrowDown, Download } from 'lucide-react'
+import { ArrowDown } from 'lucide-react'
 import gsap from 'gsap'
 import ParticleField from '../components/ParticleField'
 import { lenisScrollTo } from '../lib/lenis'
@@ -229,18 +229,6 @@ export default function Hero() {
               onClick={e => { e.preventDefault(); lenisScrollTo('#contact') }}
             >
               Get In Touch
-            </MagneticButton>
-
-            <MagneticButton
-              href="/resume.pdf"
-              download
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium text-sm border transition-all duration-200 hover:scale-[1.03] active:scale-[0.98]"
-              style={{ borderColor: 'var(--accent)', color: 'var(--accent)', backgroundColor: 'transparent' }}
-              onMouseEnter={e => (e.currentTarget.style.backgroundColor = 'var(--accent-glow)')}
-              onMouseLeave={e => (e.currentTarget.style.backgroundColor = 'transparent')}
-            >
-              <Download size={14} />
-              Resume
             </MagneticButton>
           </motion.div>
         </div>
