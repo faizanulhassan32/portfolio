@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #f5f5f8;
+  --surface: #ffffff;
+  --surface-2: #ededf3;
+  --border: #dddde8;
+  --text: #07070a;
+  --text-muted: #6b6b80;
+  --accent: #0284c7;
+  --accent-glow: rgba(2, 132, 199, 0.15);
+  --grid-color: rgba(0, 0, 0, 0.04);
+  --noise: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+}
+
+.dark {
+  --bg: #07070a;
+  --surface: #0e0e14;
+  --surface-2: #13131c;
+  --border: #1c1c28;
+  --text: #e8e8f2;
+  --text-muted: #52526a;
+  --accent: #38bdf8;
+  --accent-glow: rgba(56, 189, 248, 0.12);
+  --grid-color: rgba(255, 255, 255, 0.025);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Grid background */
+.grid-bg {
+  background-image:
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Selection */
+::selection {
+  background: var(--accent-glow);
+  color: var(--accent);
+}
+
+/* Focus outline */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Gradient text */
+.text-gradient {
+  background: linear-gradient(135deg, var(--accent) 0%, color-mix(in srgb, var(--accent) 60%, var(--text) 40%) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Noise overlay */
+.noise::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: var(--noise);
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.4;
+}
+
+/* Section divider line */
+.section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* ─── Marquee ─────────────────────────────────────── */
+
+@keyframes marquee-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes marquee-right {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+  animation-duration: var(--speed, 30s);
+}
+
+.marquee-left  { animation-name: marquee-left; }
+.marquee-right { animation-name: marquee-right; }
+
+.marquee-row:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* ─── Skill marquee icon hover lift ──────────────────── */
+.skill-marquee-item {
+  transition: transform 0.2s ease;
+  cursor: default;
+}
+.skill-marquee-item:hover {
+  transform: translateY(-4px);
+}
+
+/* ─── Project cards — pure CSS hover (no JS state) ───── */
+.project-card {
+  border-color: var(--border);
+  background-color: var(--surface);
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+.project-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent), 0 12px 36px var(--accent-glow);
+}
+
+/* ─── Contact links — pure CSS hover ─────────────────── */
+.contact-link {
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+.contact-link:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent), 0 4px 18px var(--accent-glow);
+}
+
+/* ─── Devicons dark-mode inversion ───────────────────── */
+/* For monochrome icons (GitHub, Flask) that are black and invisible on dark bg */
+.dark .icon-invert-dark {
+  filter: invert(0.88) brightness(1.1);
+}
+
+/* ─── Reduced motion ─────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none !important;
+  }
+  .skill-marquee-item:hover {
+    transform: none;
+  }
+}
