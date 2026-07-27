@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { HashRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import Lenis from 'lenis'
 import gsap from 'gsap'
@@ -21,7 +21,7 @@ import ProjectDetail from './pages/ProjectDetail'
 const pageVariants = {
   initial: { opacity: 0, y: 14 },
   animate: { opacity: 1, y: 0, transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] } },
-  exit:    { opacity: 0, y: -10, transition: { duration: 0.22, ease: 'easeIn' } },
+  exit: { opacity: 0, y: -10, transition: { duration: 0.22, ease: 'easeIn' } },
 }
 
 function Portfolio({ dark, setDark }) {
@@ -107,8 +107,8 @@ export default function App() {
   }, [])
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <AppRoutes dark={dark} setDark={setDark} />
-    </BrowserRouter>
+    </HashRouter>
   )
 }
