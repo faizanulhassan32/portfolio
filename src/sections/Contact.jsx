@@ -37,9 +37,7 @@ export default function Contact() {
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
             <p className="text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>
-              Open to backend and AI engineering roles, contract work, or a conversation about
-              retrieval architecture and agent design. Pick the channel that works for you and
-              reach out directly.
+              Currently open to full-time engineering roles, contract work, or building production-grade software together. Pick your preferred channel and let's connect.
             </p>
           </motion.div>
 

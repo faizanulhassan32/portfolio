@@ -11,8 +11,8 @@ const NAME_LINE2 = 'Ul Hassan'.split('')
 
 // Pre-compute tagline words with color + delay
 const TAGLINE_SEGMENTS = [
-  { words: ['I', 'build', 'the', 'infrastructure', 'that', 'makes', 'AI', 'work', 'in', 'production:'], muted: true },
-  { words: ['multi-agent', 'systems,', 'RAG', 'pipelines,', 'and', 'LLM', 'backends'], muted: false },
+  { words: ['I', 'build', 'the', 'infrastructure', 'that', 'makes', 'AI', 'work', 'in', 'production: '], muted: true },
+  { words: ['multi-agent', 'systems,', 'agentic', 'RAG,', 'and', 'scalable', 'AI', 'platforms'], muted: false },
   { words: ['that', 'actually', 'ship.'], muted: true },
 ]
 
@@ -143,7 +143,7 @@ export default function Hero() {
           {/* Name — char by char */}
           <h1
             className="font-display font-extrabold tracking-tight leading-[0.88]"
-            style={{ fontSize: 'clamp(3.2rem, 10vw, 7.5rem)', color: 'var(--text)' }}
+            style={{ fontSize: 'clamp(2.5rem, 7vw, 5rem)', color: 'var(--text)' }}
           >
             <span className="block" style={{ overflow: 'hidden' }}>
               {NAME_LINE1.map((char, i) => (

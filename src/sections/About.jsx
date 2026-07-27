@@ -4,8 +4,8 @@ import { User } from 'lucide-react'
 import SectionHeading from '../components/SectionHeading'
 
 const stats = [
-  { value: '2+', label: 'Years in production AI' },
-  { value: '7+', label: 'LLM systems shipped' },
+  { value: '3+', label: 'Years in production AI' },
+  { value: '8+', label: 'AI systems shipped' },
 ]
 
 export default function About() {
@@ -29,18 +29,13 @@ export default function About() {
             className="md:col-span-3 space-y-5"
           >
             <p className="text-base leading-relaxed" style={{ color: 'var(--text-muted)' }}>
-              Most of my work lives at the intersection of backend engineering and applied AI. I take
-              models and make them useful in real products: production RAG pipelines, multi-agent
-              orchestration with LangGraph, and the kind of observability tooling that keeps things
-              running when they need to.
+              Most of my work lives at the intersection of backend engineering, full-stack web development, and production LLM applications. I design and ship high-throughput APIs, multi-agent systems with LangGraph, agentic RAG pipelines, and full-stack enterprise platforms built for scale.
             </p>
             <p className="text-base leading-relaxed" style={{ color: 'var(--text-muted)' }}>
-              I have strong opinions about retrieval architecture, agent design, and keeping inference
-              costs reasonable. I care about systems that are observable, maintainable, and actually
-              solve the problem they were built for not just ones that look good in a demo.
+              I have strong opinions about retrieval architecture, agentic multi-hop reasoning, and system observability. I care about software that is maintainable, cost-effective, and actually solves complex operational problems—not just systems that look good in a demo.
             </p>
             <p className="text-base leading-relaxed" style={{ color: 'var(--text-muted)' }}>
-              I work best when the problem is hard, the repo is fresh, and there's a real deadline.
+              I work best when the problem is hard, the architecture needs depth, and the goal is to build something that actually ships to production.
             </p>
           </motion.div>
 

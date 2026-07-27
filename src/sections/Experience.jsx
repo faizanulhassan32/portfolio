@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react'
 import { motion, useInView, useReducedMotion } from 'framer-motion'
-import { Briefcase } from 'lucide-react'
+import { Briefcase, Building2 } from 'lucide-react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import SectionHeading from '../components/SectionHeading'
@@ -9,15 +9,25 @@ gsap.registerPlugin(ScrollTrigger)
 
 const jobs = [
   {
+    role: 'AI Full Stack Developer',
+    org: 'Xperion',
+    period: 'Jan 2026 – Present',
+    bullets: [
+      'Lead full-stack web development and backend architecture, driving software features from initial concept through production deployment.',
+      'Manage CI/CD pipelines, cloud deployment workflows, and automated releases to maintain continuous delivery standards.',
+      'Lead technical client meetings, present live platform demonstrations, and translate business requirements into technical execution.',
+      'Architect web interfaces and database schemas using React and Supabase, setting up LLM observability and monitoring to ensure production stability.',
+    ],
+  },
+  {
     role: 'AI Backend Engineer',
     org: 'Quest',
     period: 'Jul 2024 – Dec 2025',
     bullets: [
-      'Built production LLM systems: agentic RAG, multi-agent copilots, and semantic search across enterprise document sets',
-      'Owned the full backend for VidVerse: real-time transcription, speaker diarization, and RAG-powered video querying',
-      'Shipped a courtroom portal with live transcription, socket monitoring, and cron-based hearing summaries',
-      'Deployed observability via LangSmith and validated agent behavior with AgentEval and OpenEvals frameworks',
-      'Engineered n8n automation pipelines integrating Google Drive, Pinecone, and Gmail for business workflow automation',
+      'Architected asynchronous backend services and RESTful APIs to handle concurrent workloads and real-time data streaming.',
+      'Developed production-grade LLM workflows, retrieval-augmented generation (RAG) pipelines, and multi-agent graph architectures.',
+      'Implemented automated testing, tracing, and evaluation frameworks to monitor service health and ensure low-latency API responses.',
+      'Optimized database indexing and vector search performance to ensure fast, reliable retrieval across backend services.',
     ],
   },
   {
@@ -25,10 +35,10 @@ const jobs = [
     org: 'Codeaza Technologies',
     period: 'Jul 2023 – Jun 2024',
     bullets: [
-      'Built backend for Sentimantle: an AI sentiment analysis platform for hospitality with 24/7 automated feedback monitoring via Flask APIs',
-      'Engineered an AI-powered homeschooling management system with progress tracking, student dashboards, and automated reporting',
-      'Designed server-side logic for WorkBook, an enterprise workflow management system handling cross-department task automation',
-      'Architected a keyword tracking tool with location-based SEO ranking analysis using Python automation scripts',
+      'Designed, built, and maintained scalable RESTful APIs and backend services using Python web frameworks.',
+      'Engineered automated data pipelines, background worker tasks, and server-side business logic for enterprise clients.',
+      'Modeled relational database schemas, optimized complex SQL queries, and managed third-party API integrations.',
+      'Participated in system design reviews, technical planning, and CI/CD deployment pipelines across the development lifecycle.',
     ],
   },
 ]
@@ -99,7 +109,10 @@ function JobCard({ job, index }) {
             <h3 className="font-display font-bold text-lg" style={{ color: 'var(--text)' }}>
               {job.role}
             </h3>
-            <p className="font-medium text-sm mt-0.5" style={{ color: 'var(--accent)' }}>{job.org}</p>
+              <p className="font-medium text-sm mt-0.5 flex items-center gap-1.5" style={{ color: 'var(--accent)' }}>
+                <Building2 size={14} className="shrink-0" />
+                <span>{job.org}</span>
+              </p>
           </div>
           <span
             className="font-mono text-xs px-3 py-1 rounded-full border shrink-0"

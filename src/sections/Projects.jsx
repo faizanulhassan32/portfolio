@@ -195,7 +195,7 @@ export default function Projects() {
   return (
     <section id="projects" className="py-28 px-6">
       <div className="max-w-5xl mx-auto">
-        <SectionHeading number="03 / Projects" sub="Production systems, not demos." icon={Layers}>
+        <SectionHeading number="03 / Projects" icon={Layers}>
           Things I've built
         </SectionHeading>
 

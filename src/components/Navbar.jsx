@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Sun, Moon, Menu, X } from 'lucide-react'
+import { lenisScrollTo } from '../lib/lenis'
 
 const links = [
   { label: 'About', href: '#about' },
@@ -20,6 +21,12 @@ export default function Navbar({ dark, setDark }) {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  const handleNavClick = (e, href) => {
+    e.preventDefault()
+    lenisScrollTo(href)
+    setMobileOpen(false)
+  }
+
   const navStyle = {
     borderColor: scrolled ? 'var(--border)' : 'transparent',
     backgroundColor: scrolled ? 'color-mix(in srgb, var(--bg) 85%, transparent)' : 'transparent',
@@ -37,6 +44,7 @@ export default function Navbar({ dark, setDark }) {
         {/* Logo */}
         <a
           href="#"
+          onClick={e => handleNavClick(e, '#hero')}
           className="font-mono text-sm font-medium tracking-wider transition-colors"
           style={{ color: 'var(--accent)' }}
         >
@@ -49,7 +57,8 @@ export default function Navbar({ dark, setDark }) {
             <a
               key={label}
               href={href}
-              className="text-sm font-medium transition-colors duration-200"
+              onClick={e => handleNavClick(e, href)}
+              className="text-sm font-medium transition-colors duration-200 cursor-pointer"
               style={{ color: 'var(--text-muted)' }}
               onMouseEnter={e => (e.target.style.color = 'var(--accent)')}
               onMouseLeave={e => (e.target.style.color = 'var(--text-muted)')}
@@ -101,9 +110,9 @@ export default function Navbar({ dark, setDark }) {
                 <a
                   key={label}
                   href={href}
-                  className="text-sm font-medium"
+                  onClick={e => handleNavClick(e, href)}
+                  className="text-sm font-medium cursor-pointer"
                   style={{ color: 'var(--text-muted)' }}
-                  onClick={() => setMobileOpen(false)}
                 >
                   {label}
                 </a>

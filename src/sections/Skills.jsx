@@ -8,53 +8,55 @@ import SectionHeading from '../components/SectionHeading'
 gsap.registerPlugin(ScrollTrigger)
 
 const SKILL_MAP = {
-  // devicons
+
+  LangChain:          { img: 'https://avatars.githubusercontent.com/u/126733545?s=44&v=4' },
+  LangGraph:          { img: 'https://avatars.githubusercontent.com/u/126733545?s=44&v=4' },
+  OpenAI:             { img: 'https://www.svgrepo.com/show/306500/openai.svg', invertDark: true },
+  'Anthropic Claude': { img: 'https://cdn.simpleicons.org/anthropic', invertDark: true },
+  'Google Gemini':    { img: 'https://cdn.simpleicons.org/googlegemini' },
+  'AWS Bedrock':      { img: 'https://raw.githubusercontent.com/github/explore/main/topics/aws/aws.png' },
+  Ollama:             { img: 'https://avatars.githubusercontent.com/u/151674099?s=44&v=4' },
+  Deepgram:           { img: 'https://cdn.simpleicons.org/deepgram/000000', invertDark: true },
+  'RAG Systems':  { text: 'RAG' },
+  Docling: { img: 'https://raw.githubusercontent.com/docling-project/docling/main/docs/assets/logo.svg' },
+  LangSmith:          { img: 'https://avatars.githubusercontent.com/u/126733545?s=44&v=4' },
+  'Arize Phoenix': { img: 'https://raw.githubusercontent.com/Arize-ai/phoenix/main/docs/favicon.png' },
+  AgentEval:      { text: 'AE' },
+  n8n:                { img: 'https://avatars.githubusercontent.com/u/45487711?s=44&v=4' },
+
   Python:            { devicon: 'devicon-python-plain colored' },
   FastAPI:           { devicon: 'devicon-fastapi-plain colored' },
   Flask:             { devicon: 'devicon-flask-original', invertDark: true },
+  JavaScript:        { devicon: 'devicon-javascript-plain colored' },
   'Node.js':         { devicon: 'devicon-nodejs-plain colored' },
-  Docker:            { devicon: 'devicon-docker-plain colored' },
-  AWS:               { devicon: 'devicon-amazonwebservices-plain-wordmark colored' },
-  'Google Cloud':    { devicon: 'devicon-googlecloud-plain colored' },
+  React:             { devicon: 'devicon-react-original colored' },
+
   PostgreSQL:        { devicon: 'devicon-postgresql-plain colored' },
   MySQL:             { devicon: 'devicon-mysql-plain colored' },
   MongoDB:           { devicon: 'devicon-mongodb-plain colored' },
   Supabase:          { devicon: 'devicon-supabase-plain colored' },
-  'Git & GitHub':    { devicon: 'devicon-github-original', invertDark: true },
-  DigitalOcean:      { devicon: 'devicon-digitalocean-plain colored' },
   Elasticsearch:     { devicon: 'devicon-elasticsearch-plain colored' },
-  RabbitMQ:          { devicon: 'devicon-rabbitmq-plain colored' },
+  ChromaDB: { img: 'https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/chroma.svg' },
+  Pinecone: { img: 'https://cdn.jsdelivr.net/gh/callback-io/allogo@main/public/logos/pinecone/icon.svg' },
 
-  // SVG icons from public/icons/
-  'Anthropic Claude': { img: '/icons/anthropic.svg', invertDark: true },
-  OpenAI:             { img: '/icons/openai.svg', invertDark: true },
-  Deepgram:           { img: '/icons/deepgram.svg', invertDark: true },
-
-  // External logos
-  LangChain:          { img: 'https://avatars.githubusercontent.com/u/126733545?s=44&v=4' },
-  LangGraph:          { img: 'https://avatars.githubusercontent.com/u/126733545?s=44&v=4' },
-  LangSmith:          { img: 'https://avatars.githubusercontent.com/u/126733545?s=44&v=4' },
-  'Google Gemini':    { img: 'https://www.gstatic.com/lamda/images/gemini_favicon_f069958c85030456e93de685481c559f160ea06.png' },
-  Ollama:             { img: 'https://avatars.githubusercontent.com/u/151674099?s=44&v=4' },
-  n8n:                { img: 'https://avatars.githubusercontent.com/u/45487711?s=44&v=4' },
-
-  // Styled chips for abstract concepts
-  'RAG Systems':  { text: 'RAG' },
-  AgentEval:      { text: 'AE' },
-  Docling:        { text: 'DCL' },
+  AWS:               { devicon: 'devicon-amazonwebservices-plain-wordmark colored' },
+  'Google Cloud':    { devicon: 'devicon-googlecloud-plain colored' },
+  DigitalOcean:      { devicon: 'devicon-digitalocean-plain colored' },
+  Dokploy: { img: 'https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/dokploy.svg' },
+  Docker:            { devicon: 'devicon-docker-plain colored' },
+  'Git & GitHub':    { devicon: 'devicon-github-original', invertDark: true },
   'CI/CD':        { text: 'CD' },
-  ChromaDB:       { text: 'CDB' },
-  Pinecone:       { text: 'PC' },
+  RabbitMQ:          { devicon: 'devicon-rabbitmq-plain colored' },  
 }
 
 const rows = [
   {
     label: 'AI & LLM',
-    skills: ['LangChain','LangGraph','OpenAI','Anthropic Claude','Google Gemini','Ollama','Deepgram','RAG Systems','LangSmith','n8n','AgentEval','Docling'],
+    skills: ['LangChain','LangGraph','OpenAI','Anthropic Claude','Google Gemini','AWS Bedrock','Ollama','Deepgram','RAG Systems','Docling','LangSmith','Arize Phoenix','AgentEval','n8n'],
   },
   {
-    label: 'Backend',
-    skills: ['Python','FastAPI','Flask','Node.js'],
+    label: 'Full Stack',
+    skills: ['Python','FastAPI','Flask','JavaScript','Node.js','React'],
   },
   {
     label: 'Databases',
@@ -62,7 +64,7 @@ const rows = [
   },
   {
     label: 'Cloud & DevOps',
-    skills: ['AWS','Google Cloud','Docker','Git & GitHub','DigitalOcean','CI/CD','RabbitMQ'],
+    skills: ['AWS','Google Cloud','DigitalOcean','Dokploy','Docker','Git & GitHub','CI/CD','RabbitMQ'],
   },
 ]
 

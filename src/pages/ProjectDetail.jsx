@@ -7,7 +7,7 @@ import { projects } from '../data/projects'
 const pageVariants = {
   initial: { opacity: 0, y: 14 },
   animate: { opacity: 1, y: 0, transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] } },
-  exit:    { opacity: 0, y: -10, transition: { duration: 0.22, ease: 'easeIn' } },
+  exit: { opacity: 0, y: -10, transition: { duration: 0.22, ease: 'easeIn' } },
 }
 
 const stagger = {
@@ -87,7 +87,7 @@ export default function ProjectDetail() {
               {project.name}
             </h1>
             <p
-              className="mt-4 text-base leading-relaxed max-w-2xl"
+              className="mt-4 text-base leading-relaxed"
               style={{ color: 'var(--text-muted)' }}
             >
               {project.description}
@@ -146,7 +146,7 @@ export default function ProjectDetail() {
           {/* Highlights + Challenges */}
           <motion.div
             variants={fadeUp}
-            className={project.challenges?.length ? 'grid md:grid-cols-2 gap-8' : ''}
+            className={project.challenges?.length ? 'grid md:grid-cols-2 gap-8 items-start' : ''}
           >
             <div>
               <div className="flex items-center gap-2.5 mb-5">
@@ -155,23 +155,61 @@ export default function ProjectDetail() {
                   Key Highlights
                 </p>
               </div>
-              <ul className={`space-y-3 ${!project.challenges?.length ? 'grid md:grid-cols-2 gap-x-8' : ''}`}>
-                {project.highlights.map((h, i) => (
-                  <motion.li
-                    key={i}
-                    initial={{ opacity: 0, x: -12 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.4, delay: 0.4 + i * 0.07 }}
-                    className="flex gap-3 text-sm leading-relaxed"
-                  >
-                    <span
-                      className="shrink-0 mt-[7px] w-1.5 h-1.5 rounded-full"
-                      style={{ backgroundColor: 'var(--accent)' }}
-                    />
-                    <span style={{ color: 'var(--text-muted)' }}>{h}</span>
-                  </motion.li>
-                ))}
-              </ul>
+
+              {!project.challenges?.length ? (
+                /* Two-column layout when no challenges (1-3 left, 4-6 right) */
+                (() => {
+                  const mid = Math.ceil(project.highlights.length / 2)
+                  const leftHighlights = project.highlights.slice(0, mid)
+                  const rightHighlights = project.highlights.slice(mid)
+
+                  return (
+                    <div className="grid md:grid-cols-2 gap-x-8 gap-y-4 items-start">
+                      <div className="space-y-4">
+                        {leftHighlights.map((h, i) => (
+                          <div key={i} className="flex gap-3 text-sm leading-relaxed">
+                            <span
+                              className="font-mono text-xs font-bold shrink-0 mt-0.5"
+                              style={{ color: 'var(--accent)' }}
+                            >
+                              {String(i + 1).padStart(2, '0')}.
+                            </span>
+                            <span style={{ color: 'var(--text-muted)' }}>{h}</span>
+                          </div>
+                        ))}
+                      </div>
+                      <div className="space-y-4">
+                        {rightHighlights.map((h, i) => (
+                          <div key={i} className="flex gap-3 text-sm leading-relaxed">
+                            <span
+                              className="font-mono text-xs font-bold shrink-0 mt-0.5"
+                              style={{ color: 'var(--accent)' }}
+                            >
+                              {String(mid + i + 1).padStart(2, '0')}.
+                            </span>
+                            <span style={{ color: 'var(--text-muted)' }}>{h}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )
+                })()
+              ) : (
+                /* Single column layout when challenges exist on the right */
+                <div className="space-y-4">
+                  {project.highlights.map((h, i) => (
+                    <div key={i} className="flex gap-3 text-sm leading-relaxed">
+                      <span
+                        className="font-mono text-xs font-bold shrink-0 mt-0.5"
+                        style={{ color: 'var(--accent)' }}
+                      >
+                        {String(i + 1).padStart(2, '0')}.
+                      </span>
+                      <span style={{ color: 'var(--text-muted)' }}>{h}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
 
             {project.challenges?.length > 0 && (
@@ -270,7 +308,7 @@ function ConfidentialPlaceholder() {
         </p>
         <p className="font-mono text-xs leading-relaxed" style={{ color: 'var(--text-muted)', opacity: 0.75 }}>
           This project was developed under a client confidentiality agreement. A live or recorded
-          demo cannot be publicly shared.
+          demo cannot be shared.
         </p>
       </div>
     </div>
