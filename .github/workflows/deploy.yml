@@ -14,37 +14,38 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
 
     steps:
+      # 1. Shallow clone only the latest commit (ignores heavy git history)
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
 
+      # 2. Setup pnpm
       - uses: pnpm/action-setup@v4
         with:
           version: 10
 
+      # 3. Setup Node.js with pnpm caching
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: pnpm
 
-      - run: pnpm install
+      # 4. Fast lockfile install & build
+      - run: pnpm install --frozen-lockfile
       - run: pnpm build
 
+      # 5. Upload built dist artifact
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
 
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
-    needs: build
-
-    runs-on: ubuntu-latest
-
-    steps:
+      # 6. Deploy directly to GitHub Pages (no 2nd VM required)
       - id: deployment
         uses: actions/deploy-pages@v4
