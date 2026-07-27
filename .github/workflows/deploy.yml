@@ -41,7 +41,7 @@ jobs:
       - run: pnpm install --no-frozen-lockfile
 
       # 5. Fast Vite build + immediate exit (takes 3.7s instead of 56s)
-      - run: pnpm build && node -e 'process.exit(0)'
+      - run: pnpm build
 
       # 6. Package dist output (takes 2s)
       - uses: actions/upload-pages-artifact@v3
