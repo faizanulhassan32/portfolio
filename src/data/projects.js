@@ -1,12 +1,37 @@
 export const projects = [
   {
+    id: 'dreamit',
+    name: 'DreamIT',
+    tagline: 'Internal company management platform',
+    description:
+      'A React and Supabase platform running company-wide operations for 250+ employees, with company-wide rollups and a fully drilled-down dashboard per individual project, unifying delivery, finance, staffing, and hiring behind role-based access spanning 7 departments.',
+    highlights: [
+      'Built a dual-level architecture surfacing contracts, risk, procurement, and time tracking both company-wide and drilled into a dedicated dashboard per project, each with its own phases, PODs, timeline, metrics, compliance tracking, and change-request history',
+      'Built staffing and hiring tooling covering staff requests, interview and interviewer scheduling, and open job tracking, synced against BambooHR user records',
+      'Built an AWS Bedrock-powered hiring pipeline that screens BambooHR candidates on experience, salary, and time-zone fit and auto-schedules interviews via round-robin HR matching, leading other developers on the Foloup and Gorilla assessment sub-features that feed into it, cutting candidate time-to-decision from 2\u20133 weeks to 4\u20135 days',
+      'Unified external integrations, NetSuite, CRM, GitHub, Jira, KnowBe4 training compliance, and campus training, into a single connected system',
+      'Engineered role-based access control across 7 roles (Director, PM, Tech Lead, IT Department, Delivery Manager, Sales, and Member), each scoped to a distinct set of modules and permissions',
+      'Deployed and monitored the infrastructure via Dokploy, with model and pipeline performance tracked through a self-hosted Arize Phoenix observability deployment',
+    ],
+    stack: ['React', 'Supabase', 'JavaScript', 'AWS Bedrock', 'Arize Phoenix','Dokploy'],
+    challenges: [
+      'Supabase Edge Functions cap execution at 400 seconds, but syncing large staffing and financial datasets with NetSuite and BambooHR routinely ran longer. Built a self-reinvoking recursive execution pattern with persisted state to reliably complete long-running syncs across multiple invocations without data loss or duplication.',
+      'Inherited a codebase with exposed secrets and database dumps committed to version control. Used git-filter-repo to permanently purge sensitive data from git history and rotated every affected credential.',
+    ],
+    problemSolved:
+      'Company operations were split across disconnected spreadsheets and manual approvals: hiring alone took 2\u20133 weeks per candidate, project risk and compliance had no structured tracking, and every department needed a different level of access with no centralized time tracking. DreamIT consolidates clients, project delivery, finance, staffing, time tracking, external integrations and hiring into one platform with both company-wide and per-project visibility, cutting hiring time-to-decision to 4\u20135 days and giving each of 7 roles exactly the access they need.',
+    imageUrl: 'https://res.cloudinary.com/uz9i1m1i/image/upload/v1785240016/DreamIT_yjk11j.png',
+    videoUrl: null,
+    caution: 'Images and video shown are sourced from the company website for demonstration purposes only.',
+  },
+  {
     id: 'courtroom-portal',
     name: 'AI Courtroom Hearing Portal',
     tagline: 'AI-powered platform for managing legal proceedings',
     description:
       'A FastAPI backend portal that automates courtroom proceedings for Maui, Kaua\'i, and Hawai\'i counties generating speaker-identified transcripts, overview with news articles, action items, notes, tags and per-meeting chatbots, alongside an automated topic-based subscriber newsletter engine.',
     highlights: [
-      'Engineered automated video/audio ingestion pipelines with Deepgram speaker-identified transcription for an average of 10 daily hearings from youtube and other web channels',
+      'Engineered automated video/audio ingestion pipelines with Deepgram speaker-identified transcription for an average of 10 daily hearings from youtube and other web channels across 3 counties',
       'Built AI pipelines generating news articles, overviews, tags, action items, notes, and a dedicated RAG chatbot for every processed hearing',
       'Designed an automated topic-based subscription engine with cron delivery jobs, dispatching customized digests (daily/weekly) based on subscriber interests',
       'Implemented real time processing status updates using WebSockets, enabling the frontend to display active hearings and track each processing stage as it progressed.',
@@ -18,9 +43,10 @@ export const projects = [
       'As the system grew, inter-service communication became a bottleneck, refactoring into microservices was necessary to keep processing fast and decoupled',
       'Cron jobs had to be carefully coordinated to keep data consistent and records accurate while the platform was actively being used by real users, which meant deployment changes had to be tested and rolled out without disrupting live sessions',
     ],
-    problemSolved: 'Manually reviewing an average of 10 hearings per day across Hawaii counties meant stakeholders waited weeks for summaries and action items. This portal automates post-hearing analysis delivering speaker-identified transcripts, news articles, and AI notes in minutes, while delivering automated topic-based newsletters to subscribers.',
-    imageUrl: null,
-    videoUrl: null,
+    problemSolved: 'Manually reviewing an average of 10 hearings per day across 3 counties meant stakeholders waited weeks for summaries and action items. This portal automates post-hearing analysis delivering speaker-identified transcripts, news articles, and AI notes in minutes, while delivering automated topic-based newsletters to subscribers.',
+    imageUrl: 'https://res.cloudinary.com/uz9i1m1i/image/upload/v1785241080/openhearings_jjoodg.png',
+    videoUrl: 'https://res.cloudinary.com/uz9i1m1i/video/upload/v1785241885/Open_Hearings_q0nyyo.mp4',
+    caution: 'Images and video shown are sourced from the company website for demonstration purposes only.',
   },
   {
     id: 'workflow-copilot',
@@ -37,13 +63,13 @@ export const projects = [
     ],
     stack: ['Python', 'FastAPI', 'LangGraph', 'LangChain', 'LangSmith'],
     challenges: [
-      'This was the first project built with LangGraph, understanding how to structure graphs, define shared state, and configure agent behavior correctly required significant upfront learning before any real progress could be made',
       'The platform database was continuously updated with new content, so keeping the agent\'s knowledge current required building automated sync mechanisms and authoring custom tools the agent could call to fetch live data',
       'Managing user sessions inside a public-facing website was more complex than expected, multiple users could interact simultaneously and session context had to be kept strictly isolated to prevent data leaking between users',
     ],
     problemSolved: 'Processing exam registrations, emailing challans and payment verifications manually across 3 cities for 8–9 monthly exams (500+ registrations each) created massive HR overhead. This copilot automates the end-to-end applicant journey, reducing HR manual workload to a single review step.',
     imageUrl: 'https://res.cloudinary.com/uz9i1m1i/image/upload/v1785194261/workflow-copilot_k8mbsw.webp',
     videoUrl: null,
+    caution: 'Images and video shown are sourced from the company website for demonstration purposes only.',
   },
   {
     id: 'academic-assistant',
@@ -63,8 +89,9 @@ export const projects = [
       'Cleaning and structuring the extracted content into a format that LLMs could reason over reliably took iterative refinement, as poorly parsed sections would cause models to produce inconsistent or hallucinated evaluations',
     ],
     problemSolved: 'Preparing for UAE university accreditation audits previously required faculty to manually cross-reference an average of 45–50 documents per course against complex PLO/CLO matrices. This assistant automates the entire audit pipeline, turning a multi-week manual review into instant, criteria-aligned compliance reports.',
-    imageUrl: 'https://res.cloudinary.com/uz9i1m1i/image/upload/v1785194260/n8n-rag_v9ngmv.png',
-    videoUrl: 'https://res.cloudinary.com/uz9i1m1i/video/upload/v1785194317/n8n-rag_iszgwd.mp4',
+    imageUrl: 'https://res.cloudinary.com/uz9i1m1i/image/upload/v1785242960/Accreditation_hm1cev.png',
+    videoUrl: 'https://res.cloudinary.com/uz9i1m1i/video/upload/v1785241866/Accreditation_uurd1a.mp4',
+    caution: 'Images and video shown are sourced from the company website for demonstration purposes only.',
   },
   {
     id: 'agentic-rag',
@@ -113,6 +140,7 @@ export const projects = [
     problemSolved: 'Teams working across multiple data sources had no unified way to search all of them at once. This platform aggregates all sources into a single intelligent search interface with consistent, context-aware results.',
     imageUrl: 'https://res.cloudinary.com/uz9i1m1i/image/upload/v1785194248/semantic-search_h4lr1y.jpg',
     videoUrl: 'https://res.cloudinary.com/uz9i1m1i/video/upload/v1785194291/semantic-search_qkw27w.mp4',
+    caution: 'Images and video shown are sourced from the company website for demonstration purposes only.',
   },
   {
     id: 'vidverse',

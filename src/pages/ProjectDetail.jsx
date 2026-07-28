@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useParams, Link, Navigate, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ArrowLeft, PlayCircle, CheckCircle2, Lightbulb, Layers, Zap, Lock } from 'lucide-react'
+import { ArrowLeft, PlayCircle, CheckCircle2, Lightbulb, Layers, Zap, Lock, AlertTriangle } from 'lucide-react'
 import { projects } from '../data/projects'
 
 const pageVariants = {
@@ -252,6 +252,20 @@ export default function ProjectDetail() {
                 Demo
               </p>
             </div>
+
+            {project.caution && (
+              <div
+                className="flex gap-3 p-4 mb-4 rounded-lg border text-sm leading-relaxed"
+                style={{
+                  borderColor: 'var(--border)',
+                  backgroundColor: 'var(--surface)',
+                  color: 'var(--text-muted)',
+                }}
+              >
+                <AlertTriangle size={16} className="shrink-0 mt-0.5" style={{ color: 'var(--accent)' }} />
+                <span>{project.caution}</span>
+              </div>
+            )}
 
             {project.videoUrl ? (
               <ConfidentialVideo src={project.videoUrl} />
