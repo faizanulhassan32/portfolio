@@ -13,7 +13,7 @@ export const projects = [
       'Engineered role-based access control across 7 roles (Director, PM, Tech Lead, IT Department, Delivery Manager, Sales, and Member), each scoped to a distinct set of modules and permissions',
       'Deployed and monitored the infrastructure via Dokploy, with model and pipeline performance tracked through a self-hosted Arize Phoenix observability deployment',
     ],
-    stack: ['React', 'Supabase', 'JavaScript', 'AWS Bedrock', 'Arize Phoenix','Dokploy'],
+    stack: ['React', 'TypeScript', 'Vite', 'Supabase', , 'AWS Bedrock', 'Arize Phoenix', 'Dokploy'],
     challenges: [
       'Supabase Edge Functions cap execution at 400 seconds, but syncing large staffing and financial datasets with NetSuite and BambooHR routinely ran longer. Built a self-reinvoking recursive execution pattern with persisted state to reliably complete long-running syncs across multiple invocations without data loss or duplication.',
       'Inherited a codebase with exposed secrets and database dumps committed to version control. Used git-filter-repo to permanently purge sensitive data from git history and rotated every affected credential.',
@@ -21,7 +21,30 @@ export const projects = [
     problemSolved:
       'Company operations were split across disconnected spreadsheets and manual approvals: hiring alone took 2\u20133 weeks per candidate, project risk and compliance had no structured tracking, and every department needed a different level of access with no centralized time tracking. DreamIT consolidates clients, project delivery, finance, staffing, time tracking, external integrations and hiring into one platform with both company-wide and per-project visibility, cutting hiring time-to-decision to 4\u20135 days and giving each of 7 roles exactly the access they need.',
     imageUrl: 'https://res.cloudinary.com/uz9i1m1i/image/upload/v1785240016/DreamIT_yjk11j.png',
-    videoUrl: null,
+    videoUrl: 'https://res.cloudinary.com/uz9i1m1i/video/upload/v1785260950/DreamIT_tkkqmm.mp4',
+    caution: 'Images and video shown are sourced from the company website for demonstration purposes only.',
+  },
+  {
+    id: 'pod-journey',
+    name: 'Pod Journey',
+    tagline: 'Team maturity and continuous-improvement platform for delivery PODs',
+    description:
+      'A platform that guides Product-Oriented Delivery (POD) teams through a structured 120-day journey, a 30-day team constitution process followed by 90-day Kaizen improvement cycles, combining automated maturity scoring and DORA benchmarking with manual delivery, quality, and morale tracking.',
+    highlights: [
+      'Built a 30-day POD Constitution onboarding flow covering team identity, POD type, values, working agreements, tooling, and role-based practices and KPIs',
+      'Built a 90-day Kaizen cycle engine centered on a ~100-question maturity assessment spanning 12 SDLC phases and 10 team roles, gated behind a 60% team-participation threshold',
+      'Engineered automated metrics from maturity responses, including an Operational Maturity Score, DORA benchmarks (lead time, deploy frequency, time to restore, change fail rate), a ranked capability \u201cDNA\u201d view, a 6-axis capabilities radar, and dispersion analysis flagging polarized or low-scoring areas',
+      'Built a manual MVM (Minimum Viable Metrics) system tracking bi-weekly delivery and quality rates alongside monthly team morale and client CSAT surveys',
+      'Built an action-plan module turning analysis results into owned, deadline-tracked improvement actions linked to specific capabilities',
+      'Built an automated notification system (email via Brevo SMTP plus in-app alerts) with cron-based deadline reminders, performance-alert detection, and admin-level system health monitoring',
+      'Deployed the platform with Docker, backed by Supabase for Postgres/JSONB storage, authentication, and Deno-based edge functions',
+    ],
+    stack: ['React', 'TypeScript', 'Vite', 'Supabase', 'PostgreSQL', 'TailwindCSS', 'Chart.js'],
+    challenges: [],
+    problemSolved:
+      'POD team maturity and delivery health were tracked informally, with no consistent way to benchmark performance or catch problems before they compounded. Pod Journey formalizes this into a structured 120-day cycle, pairing automated maturity scoring across 12 SDLC phases with manual delivery, quality, and morale tracking, so improvement actions are tied to specific, ranked capability gaps instead of guesswork.',
+    imageUrl: 'https://res.cloudinary.com/uz9i1m1i/image/upload/v1785245976/pod-journey_kutob3.png',
+    videoUrl: 'https://res.cloudinary.com/uz9i1m1i/video/upload/v1785248699/pod-journey_mv89uq.mp4',
     caution: 'Images and video shown are sourced from the company website for demonstration purposes only.',
   },
   {
