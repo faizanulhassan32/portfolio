@@ -13,7 +13,7 @@ export const projects = [
       'Engineered role-based access control across 7 roles (Director, PM, Tech Lead, IT Department, Delivery Manager, Sales, and Member), each scoped to a distinct set of modules and permissions',
       'Deployed and monitored the infrastructure via Dokploy, with model and pipeline performance tracked through a self-hosted Arize Phoenix observability deployment',
     ],
-    stack: ['React', 'TypeScript', 'Vite', 'Supabase', , 'AWS Bedrock', 'Arize Phoenix', 'Dokploy'],
+    stack: ['React', 'TypeScript', 'Vite', 'Supabase', 'AWS Bedrock', 'Arize Phoenix', 'Dokploy'],
     challenges: [
       'Supabase Edge Functions cap execution at 400 seconds, but syncing large staffing and financial datasets with NetSuite and BambooHR routinely ran longer. Built a self-reinvoking recursive execution pattern with persisted state to reliably complete long-running syncs across multiple invocations without data loss or duplication.',
       'Inherited a codebase with exposed secrets and database dumps committed to version control. Used git-filter-repo to permanently purge sensitive data from git history and rotated every affected credential.',
@@ -37,9 +37,9 @@ export const projects = [
       'Built a manual MVM (Minimum Viable Metrics) system tracking bi-weekly delivery and quality rates alongside monthly team morale and client CSAT surveys',
       'Built an action-plan module turning analysis results into owned, deadline-tracked improvement actions linked to specific capabilities',
       'Built an automated notification system (email via Brevo SMTP plus in-app alerts) with cron-based deadline reminders, performance-alert detection, and admin-level system health monitoring',
-      'Deployed the platform with Docker, backed by Supabase for Postgres/JSONB storage, authentication, and Deno-based edge functions',
+      'Deployed the platform with Docker, backed by Supabase for storage, authentication, and Deno-based edge functions',
     ],
-    stack: ['React', 'TypeScript', 'Vite', 'Supabase', 'PostgreSQL', 'TailwindCSS', 'Chart.js'],
+    stack: ['React', 'TypeScript', 'Vite', 'Supabase', 'TailwindCSS', 'Chart.js', 'Dokploy'],
     challenges: [],
     problemSolved:
       'POD team maturity and delivery health were tracked informally, with no consistent way to benchmark performance or catch problems before they compounded. Pod Journey formalizes this into a structured 120-day cycle, pairing automated maturity scoring across 12 SDLC phases with manual delivery, quality, and morale tracking, so improvement actions are tied to specific, ranked capability gaps instead of guesswork.',
@@ -60,7 +60,7 @@ export const projects = [
       'Implemented real time processing status updates using WebSockets, enabling the frontend to display active hearings and track each processing stage as it progressed.',
       'Implemented a persistent retry and backtracking mechanism with state tracking to automatically recover from YouTube proxy and stream ingestion failures',
     ],
-    stack: ['Python', 'FastAPI', 'Claude', 'Gemini', 'PostgreSQL', 'WebSockets'],
+    stack: ['Python', 'FastAPI', 'Claude', 'Gemini', 'PostgreSQL', 'Deepgram', 'WebSockets'],
     challenges: [
       'Intermittent YouTube proxy failures and rate limits frequently disrupted real-time ingestion. Built an automated state-tracking and backtracking pipeline to log, retry, and re-ingest missed hearings without data loss.',
       'As the system grew, inter-service communication became a bottleneck, refactoring into microservices was necessary to keep processing fast and decoupled',
