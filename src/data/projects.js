@@ -21,7 +21,7 @@ export const projects = [
     problemSolved:
       'Company operations were split across disconnected spreadsheets and manual approvals: hiring alone took 2\u20133 weeks per candidate, project risk and compliance had no structured tracking, and every department needed a different level of access with no centralized time tracking. DreamIT consolidates clients, project delivery, finance, staffing, time tracking, external integrations and hiring into one platform with both company-wide and per-project visibility, cutting hiring time-to-decision to 4\u20135 days and giving each of 7 roles exactly the access they need.',
     imageUrl: 'https://res.cloudinary.com/uz9i1m1i/image/upload/v1785240016/DreamIT_yjk11j.png',
-    videoUrl: 'https://res.cloudinary.com/uz9i1m1i/video/upload/v1785260950/DreamIT_tkkqmm.mp4',
+    videoUrl: 'https://res.cloudinary.com/uz9i1m1i/video/upload/v1789625861/DreamIT_udrniu.mp4',
     caution: 'Images and video shown are sourced from the company website for demonstration purposes only.',
   },
   {
