@@ -3,6 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -21,33 +22,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Shallow clone (takes 1s)
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
-
-      # 2. Setup pnpm package manager (takes 2s)
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 10
-
-      # 3. Setup Node.js with built-in pnpm store cache (takes 3s)
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
-          cache: 'pnpm'
-
-      # 4. Fast dependency install (takes 3s)
-      - run: pnpm install --no-frozen-lockfile
-
-      # 5. Fast Vite build + immediate exit (takes 3.7s instead of 56s)
-      - run: pnpm build
-
-      # 6. Package dist output (takes 2s)
+          node-version: 20
+          cache: npm
+      - uses: actions/configure-pages@v5
+      - run: npm ci
+      - name: Build static site
+        run: npm run build
+        env:
+          NEXT_PUBLIC_BASE_PATH: /portfolio
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
-
-      # 7. Publish live to GitHub Pages (takes 8s)
+          path: ./out
       - id: deployment
         uses: actions/deploy-pages@v4
