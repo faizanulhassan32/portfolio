@@ -60,13 +60,11 @@ export default function Hero() {
       {/* ══ Ghost "FAIZAN" — sits at very top, right below navbar ══ */}
       <div
         aria-hidden="true"
-        className="absolute inset-x-0 pointer-events-none select-none z-0"
-        style={{ top: '58px' }}   /* just below the 64px navbar */
+        className="absolute inset-x-0 top-[130px] pointer-events-none select-none z-0 md:top-[58px]"
       >
         <span
-          className="block w-full text-center font-black uppercase leading-none tracking-tighter whitespace-nowrap overflow-hidden"
+          className="block w-full text-center font-black uppercase leading-none tracking-tighter whitespace-nowrap overflow-hidden text-[clamp(56px,15vw,88px)] md:text-[clamp(100px,20vw,300px)]"
           style={{
-            fontSize: 'clamp(100px, 20vw, 300px)',
             color: 'rgba(13,13,13,0.07)',
             letterSpacing: '-0.045em',
           }}
@@ -136,12 +134,7 @@ export default function Hero() {
             We use a narrow container so the character appears close to full height.
           */}
           <div
-            className="overflow-hidden"
-            style={{
-              width: 'clamp(260px, 28vw, 440px)',
-              height: '100svh',
-              maxHeight: '900px',
-            }}
+            className="mt-[190px] h-[55svh] w-full max-h-none overflow-hidden md:mt-0 md:h-[100svh] md:max-h-[900px] md:w-[clamp(260px,28vw,440px)]"
           >
             <video
               ref={videoRef}
@@ -169,7 +162,7 @@ export default function Hero() {
         </div>
 
         {/* ── RIGHT: CTA buttons ── */}
-        <div className="flex flex-col justify-center md:justify-end items-start md:items-end pl-0 md:pl-6 order-3 pb-8 md:pb-24 space-y-4">
+        <div className="relative -translate-y-6 md:translate-y-0 flex flex-col justify-center md:justify-end items-start md:items-end pl-0 md:pl-6 order-3 pb-8 md:pb-24 space-y-4">
           <div className="font-mono text-xs text-mute uppercase tracking-wider hidden md:block">
             Quick Actions
           </div>

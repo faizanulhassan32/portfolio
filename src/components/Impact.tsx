@@ -38,6 +38,31 @@ export default function Impact() {
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
+      if (window.matchMedia('(max-width: 639px)').matches) {
+        const track = scrollRef.current;
+        const cards = Array.from(track.children) as HTMLElement[];
+        const trackLeft = track.getBoundingClientRect().left;
+        const currentIndex = cards.reduce(
+          (nearestIndex, card, index) =>
+            Math.abs(card.getBoundingClientRect().left - trackLeft) <
+            Math.abs(cards[nearestIndex].getBoundingClientRect().left - trackLeft)
+              ? index
+              : nearestIndex,
+          0
+        );
+        const nextIndex = Math.max(
+          0,
+          Math.min(cards.length - 1, currentIndex + (direction === 'left' ? -1 : 1))
+        );
+        const nextCard = cards[nextIndex];
+
+        track.scrollTo({
+          left: track.scrollLeft + nextCard.getBoundingClientRect().left - trackLeft,
+          behavior: 'smooth',
+        });
+        return;
+      }
+
       const amount = direction === 'left' ? -380 : 380;
       scrollRef.current.scrollBy({ left: amount, behavior: 'smooth' });
     }
@@ -105,7 +130,7 @@ export default function Impact() {
           {productionMetrics.map((metric, idx) => (
             <div
               key={metric.id}
-              className="min-w-[300px] sm:min-w-[360px] md:min-w-[400px] snap-start"
+              className="w-full min-w-full snap-start sm:w-auto sm:min-w-[360px] md:min-w-[400px]"
             >
               <div className="card-premium p-7 sm:p-8 h-full flex flex-col justify-between group transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-2.5 hover:shadow-xl hover:border-ink/30 cursor-pointer">
                 {/* Card Top: Index & Context */}
