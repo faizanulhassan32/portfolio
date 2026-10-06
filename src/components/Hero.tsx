@@ -121,8 +121,6 @@ export default function Hero() {
           </p>
 
           <div className="pt-1 text-xs font-mono text-mute flex items-center gap-2">
-            <span>FAST-NUCES CS Alum</span>
-            <span>•</span>
             <span>{personalInfo.location}</span>
           </div>
         </div>

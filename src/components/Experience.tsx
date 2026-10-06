@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { experienceTimeline } from '@/lib/data';
-import { Briefcase, GraduationCap, CheckCircle2 } from 'lucide-react';
+import { Briefcase, GraduationCap } from 'lucide-react';
 
 export default function Experience() {
   const [activeIndices, setActiveIndices] = useState<number[]>([0]);
@@ -125,27 +125,17 @@ export default function Experience() {
                         </h3>
                       </div>
 
-                      {/* Highlights grouped by project/theme */}
-                      <div className="space-y-4">
-                        {item.highlights.map((h, hIdx) => (
-                          <div key={hIdx} className="space-y-2 text-left">
-                            <h4 className="font-mono text-xs font-bold text-ink uppercase tracking-wider">
-                              {h.projectTitle}
-                            </h4>
-                            <ul className="space-y-2">
-                              {h.bullets.map((bullet, bIdx) => (
-                                <li
-                                  key={bIdx}
-                                  className="flex items-start gap-2.5 text-xs sm:text-sm text-ink-2 leading-relaxed"
-                                >
-                                  <CheckCircle2 className="w-4 h-4 text-ink/70 shrink-0 mt-0.5" />
-                                  <span>{bullet}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
+                      {/* Experience highlights */}
+                      <ul className="list-disc pl-5 space-y-2 text-left marker:text-ink/70">
+                        {item.highlights.map((bullet, bulletIndex) => (
+                          <li
+                            key={bulletIndex}
+                            className="text-xs sm:text-sm text-ink-2 leading-relaxed"
+                          >
+                            {bullet}
+                          </li>
                         ))}
-                      </div>
+                      </ul>
 
                       {/* Tech Stack Tags */}
                       <div className="pt-5 border-t border-line/70 mt-6 flex flex-wrap gap-1.5">

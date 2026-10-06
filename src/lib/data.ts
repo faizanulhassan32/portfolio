@@ -55,10 +55,7 @@ export interface ExperienceItem {
   period: string;
   location?: string;
   type: 'work' | 'education';
-  highlights: {
-    projectTitle: string;
-    bullets: string[];
-  }[];
+  highlights: string[];
   techStack: string[];
 }
 
@@ -110,7 +107,7 @@ export const productionMetrics: Metric[] = [
     value: "75%",
     numericValue: 75,
     suffix: "%",
-    label: "Reduction in Turnaround Time",
+    label: "Reduction in Time-to-Decision",
     context: "AI Hiring Pipeline",
     detail:
       "Automated candidate screening and interview scheduling with AWS Bedrock, slashing time-to-decision from 2–3 weeks to 4–5 days.",
@@ -120,10 +117,10 @@ export const productionMetrics: Metric[] = [
     value: "10",
     numericValue: 10,
     suffix: " Daily",
-    label: "Court Hearings Automated",
+    label: "Court Hearings Processed",
     context: "Courtroom Intelligence Portal",
     detail:
-      "Multi-hour proceedings automated for Maui, Kaua'i, and Hawai'i counties with speaker-identified transcripts and AI notes along with newsletter digests.",
+      "Processed multi-hour proceedings for Maui, Kaua'i, and Hawai'i counties with speaker-identified transcripts, AI notes, and newsletter digests.",
   },
   {
     id: "metric-registrations",
@@ -137,7 +134,7 @@ export const productionMetrics: Metric[] = [
   },
   {
     id: "metric-documents",
-    value: "50",
+    value: "45–50",
     numericValue: 50,
     suffix: " Docs",
     label: "Audit Evidence Analyzed",
@@ -150,10 +147,10 @@ export const productionMetrics: Metric[] = [
     value: "7.5",
     numericValue: 7.5,
     suffix: "h/wk",
-    label: "Rulebook Review Time Saved",
+    label: "Manual Review Per Person",
     context: "Investment Banking Compliance",
     detail:
-      "Cut manual compliance rulebook reviews from 7.5 hrs/week per person with automated version comparison and action items.",
+      "Compliance and legal officers spent an average of 7.5 hours per week manually reviewing rulebook changes before automated version comparison and action-item generation.",
   },
   {
     id: "metric-reviews",
@@ -170,7 +167,7 @@ export const productionMetrics: Metric[] = [
     value: "120",
     numericValue: 120,
     suffix: " Days",
-    label: "Continuous Improvement Cycles",
+    label: "Team Improvement Journey",
     context: "POD Journey Platform",
     detail:
       "Guided software delivery teams through standardized 30-day constitution and 90-day Kaizen maturity assessments with DORA and capability benchmarks.",
@@ -181,41 +178,29 @@ export const experienceTimeline: ExperienceItem[] = [
   {
     id: "exp-xperion",
     role: "AI Full Stack Developer",
-    company: "Xperion",
+    company: "Xperion - Agentic Dream",
     period: "January 2026 – August 2026",
     type: "work",
     highlights: [
-      {
-        projectTitle: "DreamIT",
-        bullets: [
-          "Led technical development of DreamIT, an internal company management platform adopted by 250+ employees, spanning project delivery, time tracking, financials, resource management, and performance analytics.",
-          "Engineered integrations into BambooHR, NetSuite, KnowBe4, and campus training systems behind role-based access across 7 distinct departments.",
-          "Deployed and monitored infrastructure via Dokploy, with pipeline observability tracked through a self-hosted Arize Phoenix deployment.",
-        ],
-      },
-      {
-        projectTitle: "AI-Automated Hiring Pipeline",
-        bullets: [
-          "Led development of an AWS Bedrock-powered hiring pipeline that cut candidate time-to-decision from 2–3 weeks down to 4–5 days.",
-          "Automated candidate screening and interview scheduling, leading other developers on Foloup (video-interview) and Gorilla (coding-assessment) sub-features.",
-        ],
-      },
-      {
-        projectTitle: "POD Journey",
-        bullets: [
-          "Contributed to the development of POD Journey, an agile team-management platform integrated with DreamIT for shared project and resource data.",
-          "Supported 30-day constitution and 90-day Kaizen cycles with maturity assessments, DORA and capability metrics, automated notifications, and performance monitoring.",
-        ],
-      },
+      "Led end-to-end development of full-stack and AI-powered applications, taking ownership from technical planning and architecture through implementation and production delivery.",
+      "Led and mentored 2 junior developers through task planning, code reviews, technical guidance, and day-to-day development.",
+      "Worked directly with clients and stakeholders through requirement discussions, technical consultations, product demos, feedback sessions, and feature refinement.",
+      "Designed and integrated AI capabilities including LLM APIs, RAG pipelines, agentic workflows, and automation into production applications.",
+      "Managed deployments and production operations, including infrastructure configuration, monitoring, debugging, release workflows, and ongoing application support.",
     ],
     techStack: [
       "React",
       "TypeScript",
+      "Python",
       "Supabase",
-      "AWS Bedrock",
+      "AWS",
+      "LLMs",
+      "RAG",
+      "Agentic AI",
       "Arize Phoenix",
+      "Docker",
       "Dokploy",
-      "TailwindCSS",
+      "Git",
     ],
   },
   {
@@ -225,45 +210,31 @@ export const experienceTimeline: ExperienceItem[] = [
     period: "July 2024 – December 2025",
     type: "work",
     highlights: [
-      {
-        projectTitle: "AI-Powered Courtroom Hearing Portal",
-        bullets: [
-          "Cut a multi-week manual hearing-documentation process to zero effort by leading backend development (FastAPI) of an AI courtroom hearing portal for Maui, Kaua'i, and Hawai'i counties.",
-          "Automated video ingestion, speaker-identified transcripts with Deepgram, in-meeting chatbots across 10 daily hearings, and monthly topic-based newsletters.",
-          "Engineered WebSockets real-time processing status updates and a persistent backtracking mechanism for stream ingestion.",
-        ],
-      },
-      {
-        projectTitle: "Multi-Agent Workflow Automation Assistant",
-        bullets: [
-          "Reduced HR's exam-registration workload to a single review step by building a multi-agent copilot (LangGraph) automating registration, challan generation, and payment verification.",
-          "Handled 8 to 9 monthly exams across 3 cities (500+ registrations each) with strict session context isolation and LangSmith observability.",
-        ],
-      },
-      {
-        projectTitle: "Academic Compliance and Evaluation Assistant",
-        bullets: [
-          "Reduced faculty review workload for UAE accreditation audits by developing an AI compliance assistant that analyzes 45 to 50 documents per course against Bloom's Taxonomy matrices for PLO/CLO alignment.",
-          "Leveraged Docling for multi-column academic document parsing and Ollama for cost-effective local inference.",
-        ],
-      },
-      {
-        projectTitle: "Agentic RAG for Multi-Hop QA",
-        bullets: [
-          "Reduced incomplete and inaccurate answers across multiple production RAG bots by engineering an agentic RAG framework (LangChain, LangGraph, ChromaDB) using multi-hop, chain-of-thought reasoning.",
-        ],
-      },
+      "Designed and developed production AI and backend systems, owning architecture, implementation, integrations, debugging, and deployment.",
+      "Built reusable AI workflows and backend components for RAG, multi-agent systems, document processing, automation, and real-time applications.",
+      "Engineered reliable long-running workflows with persistent state, session isolation, progress tracking, retry mechanisms, and failure recovery.",
+      "Worked with stakeholders to understand requirements, evaluate technical approaches, demonstrate solutions, and iterate on production features.",
+      "Implemented observability and evaluation workflows to monitor AI behavior, troubleshoot failures, and improve the reliability of production systems.",
     ],
     techStack: [
       "Python",
       "FastAPI",
-      "LangGraph",
+      "LLMs",
       "LangChain",
+      "LangGraph",
       "LangSmith",
-      "Deepgram",
-      "ChromaDB",
-      "Ollama",
+      "RAG",
+      "Agentic AI",
       "PostgreSQL",
+      "MongoDB",
+      "ChromaDB",
+      "Elasticsearch",
+      "WebSockets",
+      "Deepgram",
+      "Ollama",
+      "Docker",
+      "GCP",
+      "Git",
     ],
   },
   {
@@ -273,34 +244,21 @@ export const experienceTimeline: ExperienceItem[] = [
     period: "July 2023 – June 2024",
     type: "work",
     highlights: [
-      {
-        projectTitle: "Sentimantle",
-        bullets: [
-          "Built backend pipelines processing hundreds of thousands of AI-curated reviews from Google, Booking.com, and TripAdvisor, powering a unified sentiment-tracking dashboard for hospitality clients.",
-        ],
-      },
-      {
-        projectTitle: "Home Schooling Platform",
-        bullets: [
-          "Engineered a school management platform for an Australian home-schooling provider across 6 states (NSW, VIC, QLD, SA, WA, TAS), consolidating curriculum, student administration, and AI-driven performance reporting.",
-        ],
-      },
-      {
-        projectTitle: "Work Book",
-        bullets: [
-          "Cut manual rulebook reviews from 7.5 hrs/week per person by designing backend architecture for an AI compliance-monitoring platform for investment banks, replacing them with automated version comparison and plain-English action items.",
-        ],
-      },
+      "Developed backend applications and services, owning API development, business logic, database integration, and application functionality.",
+      "Built data ingestion and processing pipelines for large volumes of structured and unstructured data across multiple external sources.",
+      "Worked with clients and stakeholders to gather requirements, discuss technical solutions, demonstrate functionality, and incorporate feedback.",
+      "Automated repetitive business processes by designing backend workflows, integrations, and data-driven application features.",
+      "Troubleshot production issues and supported applications throughout development, deployment, and ongoing maintenance.",
     ],
     techStack: [
       "Python",
-      "FastAPI",
       "Flask",
-      "PostgreSQL",
-      "Elasticsearch",
+      "FastAPI",
+      "AWS",
+      "MySQL",
       "Docker",
-      "CI/CD",
-      "Microservices",
+      "REST APIs",
+      "Git",
     ],
   },
   {
@@ -310,15 +268,21 @@ export const experienceTimeline: ExperienceItem[] = [
     period: "September 2019 – June 2023",
     type: "education",
     highlights: [
-      {
-        projectTitle: "Academic Degree & Teaching",
-        bullets: [
-          "Graduated with Bachelor of Science in Computer Science (2019 to 2023) with core competencies in distributed systems, operating systems, and computer architecture.",
-          "Served as Teaching Assistant for Computer Networks, conducting lab sessions, grading assignments, and guiding students through networking protocols and socket programming.",
-        ],
-      },
+      "Graduated with Bachelor of Science in Computer Science (2019 to 2023) with core competencies in distributed systems, operating systems, and computer architecture.",
+      "Served as Teaching Assistant for Computer Networks, conducting lab sessions, grading assignments, and guiding students through networking protocols and socket programming.",
     ],
-    techStack: ["C/C++", "Python", "Computer Networks", "Distributed Systems", "SQL"],
+    techStack: [
+      "C++",
+      "Python",
+      "SQL",
+      "Object-Oriented Programming",
+      "Database Systems",
+      "Operating Systems",
+      "Web Development",
+      "Blockchain",
+      "Distributed Systems",
+      "Computer Networks",
+    ],
   },
 ];
 
@@ -389,7 +353,7 @@ export const projectsData: ProjectItem[] = [
       "Integrated Brevo SMTP email notifications and in-app cron alerts for milestone tracking",
     ],
     stack: ["React", "TypeScript", "Vite", "TailwindCSS", "Supabase", "Chart.js", "Docker"],
-    metrics: ["120-Day Kaizen Cycles", "DORA & Capability Metrics", "6-Axis Radar Visualizations"],
+    metrics: ["120-Day Improvement Cycle", "~100 Questions / Assessment", "12 SDLC Phases", "6-Axis Capability Radar"],
     caution: "Images and video shown are sourced from the company website for demonstration purposes only.",
     videoUrl: "https://res.cloudinary.com/uz9i1m1i/video/upload/v1785248699/pod-journey_mv89uq.mp4",
   },
@@ -406,7 +370,7 @@ export const projectsData: ProjectItem[] = [
     description:
       "A distributed FastAPI platform that automates courtroom proceedings for Maui, Kaua'i, and Hawai'i counties, generating speaker-identified transcripts, legal news articles, action items, per-meeting RAG chatbots, and automated citizen topic digests.",
     problemSolved:
-      "Manually reviewing an average of 10 hearings per day across 3 counties was an entirely manual, multi-week backlog for court clerks. This platform automates the entire ingestion and synthesis pipeline, generating speaker-identified transcripts and news digests in minutes with zero manual effort.",
+      "Manually reviewing an average of 10 hearings per day across 3 counties was an entirely manual, multi-week backlog for court clerks. This platform automates the entire ingestion and synthesis pipeline, generating speaker-identified transcripts and news digests automatically in minutes.",
     highlights: [
       "Engineered automated video/audio ingestion pipelines with Deepgram speaker diarization for 10 daily hearings across 3 counties",
       "Built a 9-to-10 step media processing pipeline with database checkpointing in PostgreSQL to recover from stream drops without data loss",
@@ -418,8 +382,8 @@ export const projectsData: ProjectItem[] = [
       "Handling YouTube proxy rate limits and stream interruptions during 4-hour hearings. Solved by persisting step-by-step state in PostgreSQL so dropped jobs resume from the exact point of failure.",
       "Event loop starvation caused by heavy ffmpeg audio extraction. Decomposed into independent Docker microservices to protect client API speed.",
     ],
-    stack: ["Python", "FastAPI", "Anthropic Claude", "Google Gemini", "PostgreSQL", "Deepgram", "WebSockets", "Docker"],
-    metrics: ["10 Daily Hearings Automated", "3 Hawai'i Counties Supported", "Sub-100ms API Response"],
+    stack: ["Node.js", "Python", "FastAPI", "Anthropic Claude", "Google Gemini", "PostgreSQL", "Deepgram", "WebSockets", "Docker" , "GCP"],
+    metrics: ["10 Avg. Daily Hearings Processed", "3 Hawai'i Counties Supported", "9-10 Step AI Processing Pipeline", "Sub-100ms API Latency"],
     imageUrl: "https://res.cloudinary.com/uz9i1m1i/image/upload/v1785241080/openhearings_jjoodg.png",
     videoUrl: "https://res.cloudinary.com/uz9i1m1i/video/upload/v1785241885/Open_Hearings_q0nyyo.mp4",
     caution: "Images and video shown are sourced from the company website for demonstration purposes only.",
@@ -433,15 +397,15 @@ export const projectsData: ProjectItem[] = [
     description:
       "A website-embedded multi-agent copilot built with LangGraph that answers candidate questions and automates login-protected workflows including exam registration, fee challan PDF generation, and payment proof verification entirely through natural language.",
     problemSolved:
-      "Processing exam registrations, emailing PDF challans, and verifying bank payments manually across 3 cities for 8–9 monthly exams (500+ candidates each) created massive administrative overhead. This copilot automated the applicant journey, reducing HR workload to a single review step.",
+      "Processing exam registrations, emailing PDF challans, collecting bank payments, and handling general applicant queries manually across 3 cities for 8–9 monthly exams (500+ candidates each) created significant administrative overhead. This copilot automated the applicant journey and handled routine queries, reducing HR workload to a single review step.",
     highlights: [
       "Compiled a state graph in LangGraph featuring an Intent Classification Node, Session Auth Node, and custom Tool Execution Nodes",
       "Automated user Q&A, exam registration, dynamic fee challan PDF generation, and payment receipt upload verification",
       "Implemented strict per-session memory schemas to prevent conversation context and authentication tokens from leaking between concurrent users",
       "Integrated LangSmith to monitor graph state transitions, decision latency, and tool execution paths in production",
     ],
-    stack: ["Python", "FastAPI", "LangGraph", "LangChain", "PostgreSQL", "LangSmith"],
-    metrics: ["500+ Registrations / Exam", "8–9 Monthly Exams Automated", "1-Step HR Verification"],
+    stack: ["Next.js", "Python", "FastAPI", "MongoDB", "LangChain", "LangGraph", "LangSmith"],
+    metrics: ["500+ Registrations / Exam", "8–9 Monthly Exams Automated", "Single HR Review Step"],
     imageUrl: "https://res.cloudinary.com/uz9i1m1i/image/upload/v1785194261/workflow-copilot_k8mbsw.webp",
     videoUrl: null,
     caution: "Images and video shown are sourced from the company website for demonstration purposes only.",
@@ -455,7 +419,7 @@ export const projectsData: ProjectItem[] = [
     description:
       "A cyclic LangGraph state machine that answers complex questions across multi-page documents by chaining multiple retrieval steps and grading context relevance rather than relying on a single static pass.",
     problemSolved:
-      "Standard single-pass RAG consistently fails on questions requiring facts scattered across multiple documents. This framework uses an agentic loop to dynamically evaluate context, rewrite queries, and execute follow-up retrieval hops, eliminating hallucinated answers across production bots.",
+      "Standard single-pass RAG retrieves context only once, so inaccurate or incomplete retrieval can be passed directly to the LLM resulting in incorrect answers. It also struggles with multi-hop questions. This framework uses an agentic loop to dynamically evaluate context, rewrite queries, and execute follow-up retrieval hops, improving retrieval accuracy and grounding across production bots.",
     highlights: [
       "Built a cyclic state graph in LangGraph over ChromaDB (benchmarked on the HotpotQA dataset) for multi-document reasoning",
       "Engineered a Context Grading Node to evaluate whether retrieved chunks contain sufficient evidence before calling generation",
@@ -463,8 +427,8 @@ export const projectsData: ProjectItem[] = [
       "Applied cross-encoder reranking over combined chunks and enforced strict recursion bounds to prevent infinite loops",
       "Traced reasoning hops, latency spans, and node handoffs using LangSmith",
     ],
-    stack: ["Python", "LangGraph", "LangChain", "ChromaDB", "LangSmith", "Ollama", "Streamlit"],
-    metrics: ["Multi-Hop Reasoning", "Zero Hallucination Loops", "Cross-Encoder Reranked"],
+    stack: ["Python", "LangChain", "LangGraph", "LangSmith", "ChromaDB", "Ollama", "Streamlit"],
+    metrics: [],
     imageUrl: "https://res.cloudinary.com/uz9i1m1i/image/upload/v1785194252/agentic-rag_ispbxs.png",
     videoUrl: "https://res.cloudinary.com/uz9i1m1i/video/upload/v1785194295/agentic-rag_f1am79.mp4",
   },
@@ -485,7 +449,7 @@ export const projectsData: ProjectItem[] = [
       "Enforced rigid Pydantic JSON schemas to generate structured, auditable accreditation gap reports",
     ],
     stack: ["Python", "LangChain", "Docling", "Ollama", "OpenEvals", "Pydantic"],
-    metrics: ["45–50 Docs Parsed / Course", "UAE Accreditation Alignment", "Bloom's Taxonomy Matrix"],
+    metrics: ["45–50 Docs / Course"],
     imageUrl: "https://res.cloudinary.com/uz9i1m1i/image/upload/v1785242960/Accreditation_hm1cev.png",
     videoUrl: "https://res.cloudinary.com/uz9i1m1i/video/upload/v1785241866/Accreditation_uurd1a.mp4",
     caution: "Images and video shown are sourced from the company website for demonstration purposes only.",
@@ -499,15 +463,15 @@ export const projectsData: ProjectItem[] = [
     description:
       "A centralized enterprise search platform aggregating multi-source technical content, utilizing automated ETL pipelines, Elasticsearch indexing, and a FastAPI backend to deliver low-latency semantic search.",
     problemSolved:
-      "Technical knowledge was scattered across disparate documentation portals and websites with inconsistent schemas. TechAI unified these sources into an indexed, typo-tolerant search hub with sub-50ms query response times.",
+      "Technical knowledge was scattered across disparate documentation portals and websites with inconsistent schemas. TechAI unified these sources into an indexed, typo-tolerant search hub with sub-100ms query response times.",
     highlights: [
       "Built custom scraping and ETL pipelines to ingest, clean, and deduplicate unstructured web content from target sources",
       "Normalized inconsistent schemas into standardized JSON documents before indexing into Elasticsearch",
       "Configured custom Elasticsearch index mappings, analyzers, and fuzzy tokenization for high relevance and typo tolerance",
       "Delivered high-throughput FastAPI query endpoints connected to an interactive React frontend",
     ],
-    stack: ["Python", "FastAPI", "Elasticsearch", "PostgreSQL", "React", "Docker"],
-    metrics: ["Sub-50ms Search Latency", "Multi-Source Web Indexing", "Typo-Tolerant Tokenization"],
+    stack: ["Python", "FastAPI", "Elasticsearch", "ChromaDB", "React", "Docker"],
+    metrics: ["Sub-100ms Search Latency", "3 Websites Indexed"],
     videoUrl: "https://res.cloudinary.com/uz9i1m1i/video/upload/v1785194291/semantic-search_qkw27w.mp4",
     caution: "Images and video shown are sourced from the company website for demonstration purposes only.",
   },
@@ -528,10 +492,30 @@ export const projectsData: ProjectItem[] = [
     highlights: [
       "Built backend data ingestion and curation pipelines handling hundreds of thousands of reviews",
       "Standardized multi-source review schemas and extraction flows across Google Reviews, Booking.com, and TripAdvisor",
-      "Engineered performant backend APIs in FastAPI backed by MySQL to serve real-time sentiment analytics to client dashboards",
+      "Engineered performant backend APIs in Flask backed by MySQL to serve real-time sentiment analytics to client dashboards",
     ],
-    stack: ["Python", "FastAPI", "MySQL", "Docker"],
-    metrics: ["100K+ Reviews Processed", "3 Major Portals Unified", "MySQL Analytics Backend"],
+    stack: ["Python", "Flask", "MySQL", "AWS", "AWS Lambda", "Docker"],
+    metrics: ["100K+ Reviews Processed", "3 Major Portals Unified"],
+    caution: "Images and video shown are sourced from the company website for demonstration purposes only.",
+  },
+  {
+    id: "work-book",
+    name: "Work Book",
+    tagline: "AI compliance monitoring for investment bank rulebooks",
+    category: "AI Compliance & Document Intelligence",
+    company: "Codeaza Technologies",
+    description:
+      "Designed backend architecture for an AI compliance-monitoring platform that monitors global exchange rulebooks and regulatory handbooks, compares document versions, and translates regulatory changes into plain-English action items.",
+    problemSolved:
+      "Investment banks relied on compliance and legal officers to manually review hundreds of exchange rulebooks for changes, with each person spending an average of 7.5 hours per week identifying updates. Work Book automated rulebook monitoring and version comparison to reduce this manual review burden.",
+    highlights: [
+      "Designed backend architecture that monitors global exchange rulebooks and regulatory handbooks",
+      "Built automated version comparison workflows to identify and surface exactly what changed between rulebook versions",
+      "Enabled complex regulatory changes to be translated into plain-English action items for compliance and legal teams",
+      "Implemented monitoring of fee schedule updates to help prevent billing surprises"
+    ],
+    stack: ["Python", "Flask", "MySQL", "AWS S3", "Docker"],
+    metrics: ["7.5 Hrs / Week Manual Review Per Person"],
     caution: "Images and video shown are sourced from the company website for demonstration purposes only.",
   },
   {
@@ -549,10 +533,15 @@ export const projectsData: ProjectItem[] = [
       "Consolidated student administration, curriculum delivery, and academic record tracking",
       "Integrated AI-driven performance reporting workflows to track student progress",
     ],
-    stack: ["Python", "FastAPI", "PostgreSQL", "Docker", "REST APIs"],
-    metrics: ["6 Australian States Supported", "Consolidated Student Records", "AI Performance Reporting"],
+    stack: ["Python", "Flask", "MySQL", "Docker", "REST APIs"],
+    metrics: ["6 Australian States Supported"],
     caution: "Images and video shown are sourced from the company website for demonstration purposes only.",
   },
+
+
+  // ==========================================
+  // PERSONAL (1 Project)
+  // ==========================================
   {
     id: "n8n-document-assistant",
     name: "N8N Document Query Assistant",
@@ -570,8 +559,8 @@ export const projectsData: ProjectItem[] = [
       "Implemented document versioning to keep embeddings synchronized with updated sources",
       "Built a frontend for submitting queries and displaying retrieved results with source context",
     ],
-    stack: ["n8n", "Pinecone", "OpenAI", "Python"],
-    metrics: ["Automated Document Ingestion", "Pinecone Vector Search", "Low-Code RAG"],
+    stack: ["n8n", "Pinecone", "Gemini", "Python", "React"],
+    metrics: [],
     imageUrl: "https://res.cloudinary.com/uz9i1m1i/image/upload/v1785194247/n8n-document-assistant_nwnsk7.webp",
     videoUrl: "https://res.cloudinary.com/uz9i1m1i/video/upload/v1785194310/n8n-document-assistant_ip0ujj.mp4",
   },

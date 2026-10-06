@@ -148,7 +148,7 @@ export default function Contact() {
             <span className="hidden sm:inline">•</span>
             <span>All rights reserved</span>
             <span className="hidden sm:inline">•</span>
-            <span className="text-mute/80">Design template inspired by Lohitha Damisetti</span>
+            <span className="text-mute/80">Design template by Lohitha Damisetti</span>
           </div>
 
           <div className="flex items-center gap-6">
